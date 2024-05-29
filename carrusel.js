@@ -2,6 +2,10 @@ class Carrusel {
     constructor(padre, cards) {
         this.carrusel = document.createElement('div');
         this.carrusel.classList.add('flex');
+
+        this.contenedorInterno = document.createElement('div');
+        this.contenedorInterno.classList.add('carruselContenedorInterno');
+
         this.btnMenos = document.createElement('button');
         this.btnMenos.innerHTML = "<";
         this.btnMenos.onclick = () => this.click(-1);
@@ -22,19 +26,29 @@ class Carrusel {
 
 
         this.carrusel.appendChild(this.btnMenos);
-        this.carrusel.appendChild(this.slide);
+        this.contenedorInterno.appendChild(this.slide);
+        this.carrusel.appendChild(this.contenedorInterno);
         this.carrusel.appendChild(this.btnMas);
         padre.innerHTML = "";
         padre.appendChild(this.carrusel);
+        this.ocultarBotones();
     }
+
     click(sentido) {
         let leftActual = this.slide.scrollLeft;
         let suma = leftActual + this.slide.clientWidth * 0.8 * sentido;
         if (leftActual + this.slide.clientWidth >= this.slide.scrollWidth) suma = 0;
         this.slide.scrollLeft = suma;
-        console.log("left ", leftActual, "suma", suma, "scrollwidth", this.slide.scrollWidth, "anchoSlide", this.slide.clientWidth);
-        console.log("left+ancho ", leftActual + this.slide.clientWidth);
+        this.ocultarBotones();
+    }
 
+    ocultarBotones() {
+        this.btnMenos.classList.remove('carruselInvisible');
+        this.btnMas.classList.remove('carruselInvisible');
+        if (this.slide.scrollWidth == this.slide.clientWidth) {
+            this.btnMenos.classList.add('carruselInvisible');
+            this.btnMas.classList.add('carruselInvisible')
+        }
     }
 
 }
