@@ -8,4 +8,4 @@ for (let i = 0; i < 4; i++) {
 }
 
 
-const miCarrusel = new Carrusel2(container, articulos);
+const miCarrusel = new Carrusel(container, articulos);
