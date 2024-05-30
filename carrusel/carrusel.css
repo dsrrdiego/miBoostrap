@@ -5,6 +5,9 @@
     overflow-x: auto;
     scroll-behavior: smooth;
 }
+.flex::-webkit-scrollbar {
+    display: none; 
+  }
 
 .carruselContenedorInterno {
     width: 75%;
