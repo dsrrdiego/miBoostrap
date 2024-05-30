@@ -41,10 +41,10 @@ class Carrusel {
 
     click(sentido) {
         let leftActual = this.slide.scrollLeft;
-        let suma = leftActual + this.slide.clientWidth * 0.8 * sentido;
+        let suma = leftActual + this.slide.children[0].offsetWidth + 2.5*parseInt(window.getComputedStyle(this.slide.children[0]).marginLeft)*sentido;
+        console.log(window.getComputedStyle(this.slide.children[0]).marginLeft);
         if (leftActual + this.slide.clientWidth >= this.slide.scrollWidth) suma = 0;
         this.slide.scrollLeft = suma;
-        this.centrar();
     }
 
     ocultarBotones() {
