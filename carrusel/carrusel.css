@@ -2,12 +2,10 @@
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
 }
-.flex::-webkit-scrollbar {
-    display: none; 
-  }
+
 
 .carruselContenedorInterno {
     width: 75%;
@@ -51,5 +49,11 @@
 
 .carruselInvisible {
     display: none;
+}
+
+@media only screen and (max-device-width: 500px) {
+    .flex {
+        overflow-x: auto;
+    }
 
 }
