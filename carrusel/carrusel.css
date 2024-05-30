@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: hidden;
+    overflow-x: auto;
     scroll-behavior: smooth;
 }
 

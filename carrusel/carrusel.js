@@ -1,5 +1,6 @@
 class Carrusel {
     constructor(padre, cards) {
+        
         this.carrusel = document.createElement('div');
         this.carrusel.classList.add('flex');
 
@@ -34,23 +35,20 @@ class Carrusel {
         this.carrusel.appendChild(this.btnMas);
         padre.innerHTML = "";
         padre.appendChild(this.carrusel);
-        if (cards.length < 2) this.ocultarBotones();
-        this.centrar();
+        if (this.slide.offsetWidth==this.slide.scrollWidth) this.ocultarBotones();
 
     }
 
     click(sentido) {
         let leftActual = this.slide.scrollLeft;
         let suma = leftActual + this.slide.children[0].offsetWidth + 2.5*parseInt(window.getComputedStyle(this.slide.children[0]).marginLeft)*sentido;
-        console.log(window.getComputedStyle(this.slide.children[0]).marginLeft);
         if (leftActual + this.slide.clientWidth >= this.slide.scrollWidth) suma = 0;
         this.slide.scrollLeft = suma;
+        this.centrar();
+
     }
 
     ocultarBotones() {
-
-        this.btnMenos.classList.remove('carruselInvisible');
-        this.btnMas.classList.remove('carruselInvisible');
         this.btnMenos.classList.add('carruselInvisible');
         this.btnMas.classList.add('carruselInvisible')
     }
