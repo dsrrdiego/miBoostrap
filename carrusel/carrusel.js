@@ -35,6 +35,7 @@ class Carrusel {
         padre.innerHTML = "";
         padre.appendChild(this.carrusel);
         if (cards.length < 2) this.ocultarBotones();
+        this.centrar();
 
     }
 
@@ -43,6 +44,7 @@ class Carrusel {
         let suma = leftActual + this.slide.clientWidth * 0.8 * sentido;
         if (leftActual + this.slide.clientWidth >= this.slide.scrollWidth) suma = 0;
         this.slide.scrollLeft = suma;
+        this.centrar();
     }
 
     ocultarBotones() {
@@ -51,6 +53,18 @@ class Carrusel {
         this.btnMas.classList.remove('carruselInvisible');
         this.btnMenos.classList.add('carruselInvisible');
         this.btnMas.classList.add('carruselInvisible')
+    }
+    centrar() {
+        const buttonRect = this.btnMenos.getBoundingClientRect();
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const buttonTop = buttonRect.top + scrollTop;
+        const windowHeight = window.innerHeight;
+        const targetScroll = buttonTop - (windowHeight / 2) + (buttonRect.height / 2);
+        window.scrollTo({
+            top: targetScroll,
+            behavior: 'smooth'
+        });
+
     }
 
 }
