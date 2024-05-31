@@ -56,5 +56,8 @@
     .flex {
         overflow-x: auto;
     }
+    .carruselBtn {
+        display:none;
+    }
 
 }
