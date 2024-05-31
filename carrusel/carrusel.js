@@ -35,7 +35,8 @@ class Carrusel {
         this.carrusel.appendChild(this.btnMas);
         padre.innerHTML = "";
         padre.appendChild(this.carrusel);
-        if (this.slide.offsetWidth==this.slide.scrollWidth) this.ocultarBotones();
+        const anchoCards=parseInt(cards[0].style.width)*cards.length;
+        if (anchoCards<=this.slide.scrollWidth) this.ocultarBotones();
 
     }
 
