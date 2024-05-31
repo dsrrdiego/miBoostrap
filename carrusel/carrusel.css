@@ -52,7 +52,7 @@
     display: none;
 }
 
-@media only screen and (max-device-width: 75000px) {
+@media only screen and (max-device-width: 750px) {
     .flex {
         overflow-x: auto;
     }
