@@ -16,6 +16,7 @@
     padding-right: 5%;
     border-radius: 10px;
     min-height: 100px;
+    overflow: hidden;
 }
 
 .carruselBtn {
@@ -51,7 +52,7 @@
     display: none;
 }
 
-@media only screen and (max-device-width: 500px) {
+@media only screen and (max-device-width: 75000px) {
     .flex {
         overflow-x: auto;
     }
